@@ -1,0 +1,21 @@
+
+/* Layout */
+/* ---------------------------------- */
+
+
+html{ 
+
+	height: 100%;
+
+}
+
+* {
+	text-align: center;
+	font-family: 'Space Mono', monospace;
+	font-size: 30px;
+	margin: 0;
+	padding: 0;
+	background-color: #ff9966; 
+
+}
+
