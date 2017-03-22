@@ -1,6 +1,6 @@
 function setup() {
 
-	createCanvas (880, 880); 
+	createCanvas (900, 600); 
 
 }
 
@@ -11,7 +11,7 @@ function draw() {
 		fill(255);
 	}
 
-	ellipse(mouseX,mouseY,80,80);
+	rect(mouseX,mouseY,80,80); // shape adjustment
 	
 }
 

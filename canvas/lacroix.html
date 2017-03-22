@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>champ de lacroix </title> 
+  
+
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="lacroix.css">
+
+</head>
+
+<h1>champ de lacroix</h1>
+
+<body>
+
+<canvas id="myCanvas" width="1100" height="575"></canvas>
+
+<script>
+
+let canvas = document.getElementById("myCanvas");
+
+let context = myCanvas.getContext("2d");
+
+const NUM_POINTS = 15; 
+
+const points = [];
+
+for(let i = 0; i < NUM_POINTS; i++) {
+
+  points.push({
+
+    x: Math.random() * (myCanvas.width-150),
+    y: Math.random() * (myCanvas.height-100),
+    width: 60,
+    height: 100,
+    xDelta: 1,
+    yDelta: 1, 
+   
+  });
+} 
+
+const draw = function() {
+ context.clearRect(0,0,myCanvas.width,myCanvas.height); 
+ points.forEach(function(p){
+	var img = new Image();
+  	img.src = "pamplemousse.png";
+	img.onload = function() {
+		context.drawImage(img, p.x, p.y, p.width, p.height);
+	};
+	
+  p.x+=p.xDelta;
+  p.y+=p.yDelta;
+  if(p.x+p.width>=myCanvas.width||p.x<=0){
+    p.xDelta*=-1;
+  }
+  if(p.y+p.height>=myCanvas.height||p.y<=0){
+    
+    p.yDelta*=-1;
+  
+  }
+  
+
+ });
+
+};
+
+let animate = function() {
+
+    draw();
+
+    setTimeout(animate, 1);
+
+};
+
+animate();
+
+
+</script> 
+
+
+<script type="text/javascript" src="lacroix.js"></script>
+
+</body>
+
+<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+
+<audio src="Resonance.mp3" preload="auto" autoplay></audio>
+
+</html>
